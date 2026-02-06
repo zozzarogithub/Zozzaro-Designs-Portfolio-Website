@@ -1,0 +1,440 @@
+/* =====================================================
+   Fancy Navigation (+ Hover Effects) - adapted from CodePen
+   - Replaces the old global header across the site
+   - Keeps your centered logo unchanged
+   - Moves your Contact Me link to the left
+   - Retains semi-transparent header background (matches your site)
+   - Centers menu content in the fullscreen overlay
+   ===================================================== */
+
+/* Local container for nav only (avoids clashing with site .container) */
+.fn-container{
+  width: 95%;
+  max-width: 1090px;
+  margin: 0 auto;
+  color: var(--bg);
+}
+
+:root{ --nav-height: 84px; }
+
+/* Fixed bar */
+.main-nav.fancy-nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 0;
+
+  /* requested: keep semi-transparent background */
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14),
+              0 3px 14px 2px rgba(0,0,0,0.12),
+              0 5px 5px -3px rgba(0,0,0,0.20);
+
+  z-index: 900;
+}
+
+/* Prevent content from hiding behind the fixed nav */
+#main{ padding-top: var(--nav-height); scroll-margin-top: var(--nav-height); }
+
+/* Layout */
+.main-nav.fancy-nav .main-nav__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.theme-switcher {
+  margin-right: 25px;
+}
+
+/* Keep logo centered */
+.main-nav.fancy-nav .fancy-nav__logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.main-nav.fancy-nav .fancy-nav__logo a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure logo stays your existing size/behavior */
+.main-nav.fancy-nav .fancy-nav__logo img{
+  height: 34px; /* match existing header scale; adjust in your base.css if you prefer */
+  width: auto;
+  display: block;
+}
+
+/* Left: Contact link (kept functional, restyled to match) */
+.main-nav.fancy-nav .contact-link{
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-head, system-ui, sans-serif);
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.main-nav.fancy-nav .contact-link:hover,
+.main-nav.fancy-nav .contact-link:focus-visible{
+  background: rgba(255,255,255,0.10);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+
+/* Burger toggler */
+.main-nav__toggler{
+  position: relative;
+  width: 40px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding-top: 18px;
+}
+
+/* Open toggler bars */
+.toggler-open__bar{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: transform 0.2s cubic-bezier(0,1.07,1,2.71);
+}
+.toggler-open__bar:nth-child(1){ top: 0; }
+.toggler-open__bar:nth-child(2){ top: 12px; }
+.toggler-open__bar:nth-child(3){ top: 24px; }
+
+.toggler-open:hover .toggler-open__bar:nth-child(1),
+.toggler-open:focus-visible .toggler-open__bar:nth-child(1){
+  transform: scaleX(1.1) translateY(-3px);
+}
+.toggler-open:hover .toggler-open__bar:nth-child(2),
+.toggler-open:focus-visible .toggler-open__bar:nth-child(2){
+  transform: scaleX(0.9);
+}
+.toggler-open:hover .toggler-open__bar:nth-child(3),
+.toggler-open:focus-visible .toggler-open__bar:nth-child(3){
+  transform: scaleX(1.1) translateY(3px);
+}
+
+/* Expandable overlay */
+.main-nav__expandable{
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+  background: var(--bg);
+}
+
+/* Layered reveal effect (converted from SCSS) */
+.main-nav__expandable::before,
+.main-nav__expandable::after{
+position: absolute;
+  top: 0; left: 0;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  transform: scaleX(0);
+  transform-origin: left center;
+  content: "";
+  z-index: 1;
+  transition: transform 0.3s ease-out;
+}
+
+.main-nav__expandable::before{ background: var(--bg); }
+.main-nav__expandable::after{
+background: color-mix(in srgb, var(--bg) 85%, transparent);
+transition-delay: 0.07s;
+}
+
+.main-nav__expandable-inner{
+position: absolute;
+  inset: 0;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px 0;
+  background: var(--bg);
+  z-index: 5;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* Center the menu content (requested change) */
+.main-nav__expandable-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Close button (X) */
+.toggler-close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 40px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  transform: translateX(15px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform .2s cubic-bezier(0.14,1.01,0.54,1.38) .65s,
+              opacity .2s ease .65s,
+              visibility 0s linear .65s;
+}
+
+.toggler-close::before,
+.toggler-close::after{
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  display: block;
+  width: 90%;
+  height: 3px;
+  content: "";
+  background-color: #2c2c2c;
+  border-radius: 3px;
+  transition: transform 0.15s cubic-bezier(0,1.07,1,2.71);
+}
+.toggler-close::before{ transform: rotate(45deg); }
+.toggler-close::after{ transform: rotate(-45deg); }
+
+.toggler-close:hover::before,
+.toggler-close:focus-visible::before{ transform: rotate(25deg); }
+.toggler-close:hover::after,
+.toggler-close:focus-visible::after{ transform: rotate(-25deg); }
+
+/* Links list */
+.main-nav__list{
+
+  margin: 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0s linear .85s, visibility 0s linear .85s;
+  color: var(--bg);
+}
+
+.main-nav__item{
+  position: relative;
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform .1s ease, opacity .1s ease, visibility .1s ease;
+}
+
+/* spacing */
+.main-nav__item:not(:last-child){ margin-bottom: 30px; }
+
+.main-nav__link{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centered in overlay */
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+}
+
+.main-nav__link-title{
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: transform .2s ease;
+  color: var(--text);
+}
+
+.main-nav__link-descr{
+  margin-top: 6px;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.85;
+  color: var(--text);
+}
+
+/* hover "addText" big numbers */
+.main-nav__item::after{
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  content: attr(data-add-text);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: opacity .2s ease, visibility .2s ease;
+  color: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.main-nav__item::before{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: var(--text);
+  z-index: 10;
+}
+
+@keyframes transformScaling{
+  0%{ transform: scaleX(0); transform-origin: left center; }
+  50%{ transform: scaleX(1); transform-origin: left center; }
+  50.5%{ transform: scaleX(1); transform-origin: right center; }
+  100%{ transform: scaleX(0); transform-origin: right center; }
+}
+
+.main-nav__item:hover::before{
+  animation: transformScaling 0.4s linear 0s forwards;
+}
+.main-nav__item:hover::after{
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.45s;
+}
+.main-nav__item:hover .main-nav__link-title{
+  transform: translateX(10px);
+  transition-delay: 0.45s;
+  color: var(--bg);
+}
+
+/* Color accents (same spirit as demo, but subtle for your palette) */
+.main-nav__item:nth-child(1){ color: rgba(17,157,164,0.2); }
+.main-nav__item:nth-child(2){ color: rgba(237,71,74,0.2); }
+.main-nav__item:nth-child(3){ color: rgba(86,130,89,0.2); }
+.main-nav__item:nth-child(4){ color: rgba(66,32,64,0.2); }
+.main-nav__item:nth-child(5){ color: rgba(2,169,234,0.2); }
+
+/* OPEN STATE */
+.main-nav__expandable.js-open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-nav__expandable.js-open::before,
+.main-nav__expandable.js-open::after,
+.main-nav__expandable.js-open .main-nav__expandable-inner{
+  transform: scaleX(1);
+}
+
+.main-nav__expandable.js-open .main-nav__expandable-inner{
+  transition: transform 0.3s ease-out 0.14s;
+}
+
+.main-nav__expandable.js-open .main-nav__list{
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-nav__expandable.js-open .main-nav__item{
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* stagger-ish */
+.main-nav__expandable.js-open .main-nav__item:nth-child(1){ transition-delay: .85s; }
+.main-nav__expandable.js-open .main-nav__item:nth-child(2){ transition-delay: .95s; }
+.main-nav__expandable.js-open .main-nav__item:nth-child(3){ transition-delay: 1.05s; }
+.main-nav__expandable.js-open .main-nav__item:nth-child(4){ transition-delay: 1.15s; }
+.main-nav__expandable.js-open .main-nav__item:nth-child(5){ transition-delay: 1.25s; }
+
+/* show close btn when open */
+.main-nav__expandable.js-open .toggler-close{
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive */
+@media (max-width: 640px){
+  .main-nav.fancy-nav .contact-link{ font-size: 14px; padding: 8px 10px; }
+  .main-nav.fancy-nav .fancy-nav__logo img{ height: 30px; }
+}
+
+/* Allow scrolling inside the expanded menu if the list exceeds viewport height */
+.main-nav__list{
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* =============================
+   Recent Clients submenu
+   - Appears on hover/focus
+   - Same style, half-size content
+   ============================= */
+.has-sub{
+  position: relative;
+}
+
+.main-nav__sublist{
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+
+  /* hidden by default */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  transition: max-height .35s ease, opacity .25s ease;
+}
+
+.has-sub:hover .main-nav__sublist,
+.has-sub:focus-within .main-nav__sublist{
+  max-height: 520px; /* enough to show all subitems */
+  opacity: 1;
+}
+
+.main-nav__item--sub:not(:last-child){
+  margin-bottom: 18px;
+}
+
+/* Half-size typography for submenu */
+.main-nav__item--sub .main-nav__link-title{
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  letter-spacing: 1px;
+}
+
+.main-nav__item--sub .main-nav__link-descr{
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Place the big number behind the submenu item as well */
+.main-nav__item--sub::after{
+  font-size: clamp(2rem, 4.5vw, 2.5rem);
+}

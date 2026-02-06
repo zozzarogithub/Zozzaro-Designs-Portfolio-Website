@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Videography | Zozzaro Portfolio</title>
+<meta content="Case study: theme nights and Take to the Skies." name="description"/>
+<link href="client-normal-cornbelters.html" rel="canonical"/>
+<link href="assets/images/favicon.png" rel="icon" type="image/png"/>
+<meta content="Normal Cornbelters | Your Name" property="og:title"/>
+<meta content="Case study: theme nights and Take to the Skies." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="assets/images/placeholder_landscape.jpeg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Your Name \u2014 Portfolio",
+      "url": "start-here.html",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "name": "Your Name",
+      "url": "start-here.html",
+      "sameAs": [
+        "https://www.linkedin.com/",
+        "https://github.com/"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Normal Cornbelters",
+      "description": "Case study: theme nights and Take to the Skies.",
+      "url": "client-normal-cornbelters.html",
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+<link href="css/client-normal-cornbelters.css" rel="stylesheet"/>
+<link href="css/parallax-gallery.css" rel="stylesheet"/>
+<link href="css/fancy-nav.css" rel="stylesheet"/>
+<link href="css/theme-switcher.css" rel="stylesheet"/>
+<script defer="True" src="js/theme-switcher.js"></script>
+<link href="css/scroll-smoother.css" rel="stylesheet"/>  <link href="css/gsap-parallax-layout.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/faq.css">
+<link rel="stylesheet" href="css/dot-grid.css"/>
+</head>
+<body class="university-subpage">
+<!--
+  PAGE STRUCTURE NOTES
+  - Header/Nav are shared across pages.
+  - Main content is inside <main id="main" class="container">.
+  - Each content block is a <section class="section">.
+  - To add JavaScript for a specific section:
+      1) Give it an id, e.g. <section id="my-section" class="section">
+      2) Create /js/my-section.js and include it with:
+         <script src="js/my-section.js" defer></script>
+      3) In that JS file, target it with:
+         const el = document.querySelector("#my-section");
+-->
+<header class="main-nav fancy-nav">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="fn-container">
+<div class="main-nav__inner">
+<!-- Left: Contact link -->
+<a class="contact-link" href="contact-me.html">Contact Me</a>
+<!-- Center: your logo -->
+<div class="fancy-nav__logo">
+<a aria-label="Go to Start Here" href="start-here.html"><img alt="Logo" decoding="async" loading="lazy" src="assets/images/placeholder_logo.jpeg"/></a>
+</div>
+<!-- Right: burger toggler -->
+<div class="nav-controls">
+<div aria-label="Theme selector" class="c-theme" role="group">
+<fieldset c-previous="2" class="c-toggle">
+<legend class="sr-only">Theme</legend>
+<input aria-label="Light theme" c-option="1" name="theme" type="radio" value="light"/>
+<label data-theme="light" title="Light">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12Zm0-16v2m0 16v2m10-10h-2M4 12H2m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m13.9 0-1.41 1.41M6.46 17.54l-1.41 1.41" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+</label>
+<input aria-label="Dark theme" c-option="2" name="theme" type="radio" value="dark"/>
+<label data-theme="dark" title="Dark">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</label>
+<input aria-label="Dim theme" c-option="3" name="theme" type="radio" value="dim"/>
+<label data-theme="dim" title="Dim">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.74V18a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3.26A7 7 0 0 0 12 2Zm-2 20h4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</label>
+<span aria-hidden="true" class="c-thumb"></span>
+</fieldset>
+</div>
+<button aria-controls="fancy-menu" aria-expanded="false" aria-label="Open Menu" class="main-nav__toggler toggler-open" title="Open Menu" type="button">
+<span class="toggler-open__bar"></span>
+<span class="toggler-open__bar"></span>
+<span class="toggler-open__bar"></span>
+</button>
+</div>
+</div>
+</div>
+<!-- Fullscreen expandable menu -->
+<div aria-hidden="true" class="main-nav__expandable" id="fancy-menu">
+<div class="main-nav__expandable-inner">
+<div class="fn-container">
+<div class="main-nav__expandable-content">
+<button aria-label="Close Menu" class="main-nav__toggler toggler-close" title="Close Menu" type="button"></button>
+<ul aria-label="Site navigation" class="main-nav__list" role="menu">
+<li class="main-nav__item" data-add-text="">
+<a class="main-nav__link" href="start-here.html" title="Start Here">
+<span class="main-nav__link-title">Start Here</span>
+<span class="main-nav__link-descr">Return to Start Here</span>
+</a>
+</li>
+<li class="main-nav__item" data-add-text="">
+<a class="main-nav__link" href="about-me.html" title="About Me">
+<span class="main-nav__link-title">About Me</span>
+<span class="main-nav__link-descr">Learn more about me</span>
+</a>
+</li>
+<li class="main-nav__item" data-add-text="">
+<a class="main-nav__link" href="resume.html" title="Resume">
+<span class="main-nav__link-title">Resume</span>
+<span class="main-nav__link-descr">View my resume</span>
+</a>
+</li>
+<li class="main-nav__item has-sub" data-add-text="">
+<a class="main-nav__link" href="recent-clients.html" title="Recent Clients">
+<span class="main-nav__link-title">Recent Clients</span>
+<span class="main-nav__link-descr">Explore client work</span>
+</a>
+<ul aria-label="Recent Clients subpages" class="main-nav__sublist">
+<li class="main-nav__item main-nav__item--sub" data-add-text="4.1">
+<a class="main-nav__link" href="client-zozzaro-chiro.html" title="Zozzaro Chiropractic and Rehab">
+<span class="main-nav__link-title">Zozzaro Chiropractic and Rehab</span>
+<span class="main-nav__link-descr">Client showcase</span>
+</a>
+</li>
+<li class="main-nav__item main-nav__item--sub" data-add-text="4.2">
+<a class="main-nav__link" href="client-cru.html" title="Cru">
+<span class="main-nav__link-title">Cru</span>
+<span class="main-nav__link-descr">Client showcase</span>
+</a>
+</li>
+<li class="main-nav__item main-nav__item--sub" data-add-text="4.3">
+<a class="main-nav__link" href="client-normal-cornbelters.html" title="Normal Cornbelters">
+<span class="main-nav__link-title">Normal Cornbelters</span>
+<span class="main-nav__link-descr">Client showcase</span>
+</a>
+</li>
+<li class="main-nav__item main-nav__item--sub" data-add-text="4.4">
+<a class="main-nav__link" href="client-grace-church.html" title="Grace Church">
+<span class="main-nav__link-title">Grace Church</span>
+<span class="main-nav__link-descr">Client showcase</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="main-nav__item has-sub" data-add-text="05">
+<a class="main-nav__link" href="university-projects.html" title="University Projects">
+<span class="main-nav__link-title">University Projects</span>
+<span class="main-nav__link-descr">See my projects</span>
+</a>
+<ul class="main-nav__sublist"><li class="main-nav__item main-nav__item--sub" data-add-text="5.1"><a class="main-nav__link main-nav__link--sub" href="uni-web-design-low-level.html">Web Design and ‘Low Level’ Coding</a></li><li class="main-nav__item main-nav__item--sub" data-add-text="5.2"><a class="main-nav__link main-nav__link--sub" href="uni-branding-graphic-design.html">Branding and Graphic Design</a></li><li class="main-nav__item main-nav__item--sub" data-add-text="5.3"><a class="main-nav__link main-nav__link--sub" href="uni-app-design.html">App Design</a></li><li class="main-nav__item main-nav__item--sub" data-add-text="5.4"><a class="main-nav__link main-nav__link--sub" href="uni-animation-high-level.html">Animation and ‘High Level’ Coding</a></li><li class="main-nav__item main-nav__item--sub" data-add-text="5.5"><a class="main-nav__link main-nav__link--sub" href="uni-electronic-fabrication.html">Electronic Fabrication</a></li><li class="main-nav__item main-nav__item--sub" data-add-text="5.6"><a class="main-nav__link main-nav__link--sub" href="uni-videography.html">Videography</a></li></ul></li>
+<li class="main-nav__item" data-add-text="">
+<a class="main-nav__link" href="contact-me.html" title="Contact Me">
+<span class="main-nav__link-title">Contact Me</span>
+<span class="main-nav__link-descr">Send me a message</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="dot-grid-bg" aria-hidden="true"><div class="dot-grid__wrap"><canvas class="dot-grid__canvas"></canvas></div></div>
+<div id="smooth-wrapper"><div id="smooth-content"><section aria-label="Opening Photo" class="hero"><h1 class="hero-title">Header (H1)</h1><div aria-label="Site title banner" class="hero-banner">Videography</div><div class="media"><img alt="Opening photo placeholder" decoding="async" src="assets/images/placeholder_landscape.jpeg"/></div></section><main class="container" id="main" tabindex="-1">
+<section class="panel">
+<div class="center-text"><div class="center-text">
+<p>highlights paragraph &lt;p&gt; — replace this with your real copy.</p></div></div>
+</section>
+<section class="panel">
+<div aria-label="Brand development parallax gallery" class="parallax-gallery">
+<div class="external">
+<div class="horizontal-scroll-wrapper">
+<div class="img-wrapper slower">
+<button aria-label="Expand image: Placeholder Landscape" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_landscape.jpeg" data-title="Placeholder Landscape" type="button">
+<img alt="Placeholder landscape" decoding="async" loading="lazy" src="assets/images/placeholder_landscape.jpeg"/>
+<span class="img-label">Landscape</span>
+</button>
+</div>
+<div class="img-wrapper faster">
+<button aria-label="Expand image: Placeholder Portrait" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_portrait.png" data-title="Placeholder Portrait" type="button">
+<img alt="Placeholder portrait" decoding="async" loading="lazy" src="assets/images/placeholder_portrait.png"/>
+<span class="img-label">Portrait</span>
+</button>
+</div>
+<div class="img-wrapper slower vertical">
+<button aria-label="Expand image: Placeholder Square" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_square.webp" data-title="Placeholder Square" type="button">
+<img alt="Placeholder square" decoding="async" loading="lazy" src="assets/images/placeholder_square.webp"/>
+<span class="img-label">Square</span>
+</button>
+</div>
+<div class="img-wrapper slower slower-down">
+<button aria-label="Expand image: Placeholder Logo" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_logo.png" data-title="Placeholder Logo" type="button">
+<img alt="Placeholder logo" decoding="async" loading="lazy" src="assets/images/placeholder_logo.png"/>
+<span class="img-label">Logo</span>
+</button>
+</div>
+<div class="img-wrapper">
+<button aria-label="Expand image: Placeholder Landscape WebP" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_landscape.webp" data-title="Placeholder Landscape (WebP)" type="button">
+<img alt="Placeholder landscape webp" decoding="async" loading="lazy" src="assets/images/placeholder_landscape.webp"/>
+<span class="img-label">Landscape (WebP)</span>
+</button>
+</div>
+<div class="img-wrapper slower">
+<button aria-label="Expand image: Placeholder Square JPG" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_square.jpeg" data-title="Placeholder Square (JPG)" type="button">
+<img alt="Placeholder square jpg" decoding="async" loading="lazy" src="assets/images/placeholder_square.jpeg"/>
+<span class="img-label">Square (JPG)</span>
+</button>
+</div>
+<div class="img-wrapper faster1">
+<button aria-label="Expand image: Placeholder Portrait JPG" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_portrait.jpeg" data-title="Placeholder Portrait (JPG)" type="button">
+<img alt="Placeholder portrait jpg" decoding="async" loading="lazy" src="assets/images/placeholder_portrait.jpeg"/>
+<span class="img-label">Portrait (JPG)</span>
+</button>
+</div>
+<div class="img-wrapper slower slower2">
+<button aria-label="Expand image: Placeholder Landscape alt" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_landscape.jpeg" data-title="Placeholder Landscape (Alt)" type="button">
+<img alt="Placeholder landscape alt" decoding="async" loading="lazy" src="assets/images/placeholder_landscape.jpeg"/>
+<span class="img-label">Landscape (Alt)</span>
+</button>
+</div>
+<div class="img-wrapper">
+<button aria-label="Expand image: Placeholder Logo JPG" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_logo.jpeg" data-title="Placeholder Logo (JPG)" type="button">
+<img alt="Placeholder logo jpg" decoding="async" loading="lazy" src="assets/images/placeholder_logo.jpeg"/>
+<span class="img-label">Logo (JPG)</span>
+</button>
+</div>
+<div class="img-wrapper slower last">
+<button aria-label="Expand image: Placeholder Square alt" class="pg-trigger" data-desc="Add your annotation here." data-full="assets/images/placeholder_square.webp" data-title="Placeholder Square (Alt)" type="button">
+<img alt="Placeholder square alt" decoding="async" loading="lazy" src="assets/images/placeholder_square.webp"/>
+<span class="img-label">Square (Alt)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Modal for expanded images -->
+<div aria-hidden="true" aria-modal="true" class="pg-modal" id="pg-modal" role="dialog">
+<div class="pg-modal__backdrop" data-pg-close=""></div>
+<div class="pg-modal__dialog" role="document">
+<button aria-label="Close" class="pg-modal__close" data-pg-close="" type="button">×</button>
+<img alt="" class="pg-modal__image" decoding="async" loading="lazy"/>
+<h4 class="pg-modal__title"></h4>
+<p class="pg-modal__desc"></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Explore More section
+         Change destination by editing href="client-grace-church.html" -->
+<section class="faq-section" aria-labelledby="faq-heading">
+  <div class="faq-container">
+    <div class="faq-head">
+      <h2 id="faq-heading" class="faq-title">Frequently asked questions</h2>
+    </div>
+
+    <div class="accordion-group" data-accordion="default-accordion">
+      <div class="accordion active" id="faq-item-1">
+        <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="faq-panel-1">
+          <h5>How can I reset my password?</h5>
+          <span class="accordion-icons" aria-hidden="true">
+            <svg class="icon-plus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18M12 18V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <svg class="icon-minus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </button>
+        <div id="faq-panel-1" class="accordion-content" role="region" aria-labelledby="faq-item-1">
+          <p>
+            To create an account, find the 'Sign up' or 'Create account' button, fill out the registration form with your personal information, and click 'Create account' or 'Sign up.' Verify your email address if needed, and then log in to start using the platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion" id="faq-item-2">
+        <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="faq-panel-2">
+          <h5>How do I update my billing information?</h5>
+          <span class="accordion-icons" aria-hidden="true">
+            <svg class="icon-plus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18M12 18V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <svg class="icon-minus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </button>
+        <div id="faq-panel-2" class="accordion-content" role="region" aria-labelledby="faq-item-2">
+          <p>
+            To create an account, find the 'Sign up' or 'Create account' button, fill out the registration form with your personal information, and click 'Create account' or 'Sign up.' Verify your email address if needed, and then log in to start using the platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion" id="faq-item-3">
+        <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="faq-panel-3">
+          <h5>How can I contact customer support?</h5>
+          <span class="accordion-icons" aria-hidden="true">
+            <svg class="icon-plus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18M12 18V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <svg class="icon-minus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </button>
+        <div id="faq-panel-3" class="accordion-content" role="region" aria-labelledby="faq-item-3">
+          <p>
+            To create an account, find the 'Sign up' or 'Create account' button, fill out the registration form with your personal information, and click 'Create account' or 'Sign up.' Verify your email address if needed, and then log in to start using the platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion" id="faq-item-4">
+        <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="faq-panel-4">
+          <h5>How do I delete my account?</h5>
+          <span class="accordion-icons" aria-hidden="true">
+            <svg class="icon-plus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18M12 18V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <svg class="icon-minus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 12H18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </button>
+        <div id="faq-panel-4" class="accordion-content" role="region" aria-labelledby="faq-item-4">
+          <p>
+            To create an account, find the 'Sign up' or 'Create account' button, fill out the registration form with your personal information, and click 'Create account' or 'Sign up.' Verify your email address if needed, and then log in to start using the platform.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section explore-more">
+<div class="grid two">
+<div>
+<h2>Explore More</h2>
+<p class="muted">Follow the guided path through the site.</p>
+</div>
+<div class="card" style="display:flex; align-items:center; justify-content:flex-end;">
+<a class="contact-link" href="university-projects.html">Next: University Projects</a>
+</div>
+</div>
+</section>
+<!-- Let’s Connect (reused)
+         Edit text here; button always goes to Contact Me -->
+<section class="section lets-connect">
+<div class="grid two">
+<div>
+<h2>Let’s Connect Header (H6)</h2>
+<p>let’s connect paragraph &lt;p&gt;</p>
+</div>
+<div class="card" style="display:flex; align-items:center; justify-content:flex-end;">
+<a class="contact-link" href="contact-me.html">Contact Me</a>
+</div>
+</div>
+</section>
+<div aria-hidden="true" aria-modal="true" class="pg-modal" id="pg-modal" role="dialog">
+<div class="pg-modal__backdrop" data-pg-close=""></div>
+<div class="pg-modal__dialog" role="document">
+<button aria-label="Close" class="pg-modal__close" data-pg-close="" type="button">×</button>
+<img alt="" class="pg-modal__image" decoding="async" loading="lazy"/>
+<h4 class="pg-modal__title"></h4>
+<p class="pg-modal__desc"></p>
+</div>
+</div>
+</main><footer class="site-footer">
+<div class="container footer-inner">
+<small>© 2026 Your Name. All rights reserved.</small>
+<small><a href="start-here.html">Home</a> · <a href="recent-clients.html">Clients</a> · <a href="university-projects.html">Projects</a> · <a href="contact-me.html">Contact</a></small>
+</div>
+</footer></div></div>
+<!-- Full-width page title banner (edit style in css/base.css: .page-title-banner) -->
+<script defer="True" src="js/fancy-nav.js"></script>
+<script defer="True" src="js/parallax-gallery.js"></script>
+<script defer="True" src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script><script defer="True" src="https://assets.codepen.io/16327/ScrollSmoother.min.js?v=991"></script><script defer="True" src="https://assets.codepen.io/16327/ScrollTrigger.min.js?v=991"></script><script defer="True" src="js/scroll-smoother.js"></script>  <script defer src="js/faq.js"></script>
+<script defer src="js/dot-grid.js"></script>
+</body>
+</html>
