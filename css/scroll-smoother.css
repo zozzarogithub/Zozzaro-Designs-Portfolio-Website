@@ -1,0 +1,110 @@
+/*
+  Smooth Scrolling with GSAP ScrollSmoother (site-wide)
+  ----------------------------------------------------
+  This file integrates the GSAP ScrollSmoother layout pattern (wrapper + content) across the site
+  WITHOUT changing your global header/footer markup.
+
+  Key points:
+  - <header> remains outside the smoother wrappers so `position: sticky` keeps working.
+  - All other page content lives inside:
+      <div id="smooth-wrapper">
+        <div id="smooth-content"> ... </div>
+      </div>
+
+  - We measure the header height in JS and set:
+      --site-header-h
+    so content never hides beneath the sticky header.
+*/
+
+#smooth-wrapper{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  /* Header sits above (z-index:50). Keep the smoother below it. */
+  z-index: 1;
+}
+
+#smooth-content{
+  /* Prevent the first content from sliding under the sticky header */
+  padding-top: var(--site-header-h, 80px);
+  will-change: transform;
+}
+
+/*
+  NOTE:
+  All "scene" layout styling now lives in:
+    css/gsap-parallax-layout.css
+  This file is reserved for ScrollSmoother wrapper mechanics + HERO rules.
+*/
+
+/* ---- Shared HERO (used on every page) ----
+   Modelled from Start Here:
+   - full-bleed image placeholder
+   - banner overlaps the image and is centered
+   - title overlays the image
+*/
+.hero{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.hero .media{
+  width: 100%;
+}
+
+.hero img{
+  width: 100%;
+  height: min(70vh, 560px);
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Default hero text colors follow theme (Start Here overrides to black in start-here.css) */
+.hero-title{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: start center;
+  text-align: center;
+  padding: 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-banner{
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-size: var(--page-title-size);
+  line-height: 1;
+  text-align: center;
+  max-width: 92vw;
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
+
+  /* Keep the "glass" vibe across themes without altering your global header */
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+}
+
+/* Reduce motion users should get native scrolling + no transforms from our animations */
+@media (prefers-reduced-motion: reduce){
+  #smooth-wrapper{
+    position: static;
+    overflow: visible;
+  }
+  #smooth-content{
+    padding-top: 0;
+    will-change: auto;
+  }
+}

@@ -1,0 +1,147 @@
+/*
+  HOW TO EDIT THIS FILE
+  - Global theme + typography live in css/base.css
+  - This file is page-specific layout.
+  - Tip: change fonts/sizes/colors in :root inside base.css.
+*/
+
+@import url("./base.css");
+
+.top-row-3{
+  display:grid; gap: var(--gap);
+}
+@media (min-width:760px){
+  .top-row-3{ grid-template-columns: repeat(3,1fr); }
+}
+.stack-land{
+  display:grid; gap: var(--gap);
+}
+.take-row{
+  display:grid; gap: var(--gap);
+}
+@media (min-width:760px){
+  .take-row{ grid-template-columns: 1fr 1.2fr; align-items:start; }
+}
+
+
+
+/* =========================================================
+   Normal Cornbelters — CSS Grid Responsive Image Gallery
+   Adapted from CodePen (ramenhog/MpORPa) and scoped so it
+   doesn't affect other pages.
+   - Click behavior uses the shared pg-modal system (see js/parallax-gallery.js)
+   ========================================================= */
+
+.nc-grid-gallery{
+  width: 100%;
+}
+
+/* Fallback message (shown only if grid not supported) */
+.nc-grid-gallery .message{
+  border: 1px solid rgba(255,255,255,.2);
+  padding: 1.25rem;
+  font-size: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  display: block;
+}
+
+@supports (display: grid){
+  .nc-grid-gallery .message{ display:none; }
+  .nc-grid-gallery .section{ display:block; }
+}
+
+.nc-grid-gallery .section{
+  padding: 0;   /* keep within existing .panel padding */
+}
+
+.nc-grid-gallery__title{
+  margin: 0 0 1.2rem;
+  /* inherit page typography tokens */
+}
+
+.nc-grid-gallery .grid{
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-auto-rows: 150px;
+  grid-auto-flow: row dense;
+  width: 100%;
+}
+
+/* Use <button> elements as tiles (keeps keyboard accessibility) */
+.nc-grid-gallery .item{
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  box-shadow: -2px 2px 10px 0px rgba(0,0,0,.35);
+  cursor: pointer;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+
+  transition: transform 0.3s ease-in-out;
+  counter-increment: item-counter;
+  overflow: hidden;
+}
+
+.nc-grid-gallery .item::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.nc-grid-gallery .item:hover{
+  transform: scale(1.05);
+}
+.nc-grid-gallery .item:hover::after{
+  opacity: 0;
+}
+
+.nc-grid-gallery .item--medium{ grid-row-end: span 2; }
+.nc-grid-gallery .item--large{ grid-row-end: span 3; }
+
+@media (min-width: 768px){
+  .nc-grid-gallery .item--full{
+    grid-column: 1 / -1;
+    grid-row-end: span 2;
+  }
+}
+
+/* caption strip */
+.nc-grid-gallery .item__details{
+  position: relative;
+  border-radius: 10px;
+  z-index: 1;
+  padding: 15px;
+  background: #fff;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+
+  color: #828282;
+  font-size: 0.95rem;
+}
+
+.nc-grid-gallery .item__details::before{
+  content: counter(item-counter);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding-right: 0.5em;
+  color: #444;
+}
+
+/* Keep keyboard users happy */
+.nc-grid-gallery .item:focus-visible{
+  outline: 3px solid rgba(255,255,255,.9);
+  outline-offset: 3px;
+}
