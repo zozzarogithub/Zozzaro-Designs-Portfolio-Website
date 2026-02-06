@@ -1,0 +1,10 @@
+/*
+  HOW TO EDIT THIS FILE
+  - Global theme + typography live in css/base.css
+  - This file is page-specific layout.
+  - Tip: change fonts/sizes/colors in :root inside base.css.
+*/
+
+@import url("./base.css");
+
+.resume-photo{ margin-top:16px; }

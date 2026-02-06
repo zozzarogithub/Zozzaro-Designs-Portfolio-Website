@@ -1,0 +1,39 @@
+/* ==========================================================
+   DOT GRID REACTIVE BACKGROUND (ReactBits DotGrid port)
+   - Fixed, full-viewport canvas behind content
+   - Transparent negative space so theme background shows through
+   - Footer is masked by giving it a theme-matched background
+   ========================================================== */
+
+.dot-grid-bg{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;              /* behind all page content */
+  pointer-events: none;     /* never block clicks/hover */
+}
+
+.dot-grid__wrap{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dot-grid__canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure all site content paints above the dot grid */
+#smooth-wrapper, header.site-header{
+  position: relative;
+  z-index: 1;
+}
+
+/* Mask the dot grid in the footer region (grid should NOT show through footer) */
+.site-footer{
+  background: var(--bg);
+}

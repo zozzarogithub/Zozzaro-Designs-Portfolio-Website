@@ -1,0 +1,15 @@
+/*
+  HOW TO EDIT THIS FILE
+  - Global theme + typography live in css/base.css
+  - This file is page-specific layout.
+  - Tip: change fonts/sizes/colors in :root inside base.css.
+*/
+
+@import url("./base.css");
+
+.two-photos{
+  display:grid; gap: var(--gap);
+}
+@media (min-width:760px){
+  .two-photos{ grid-template-columns: 1fr 1fr; }
+}
